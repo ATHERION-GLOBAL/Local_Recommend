@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Recommend | Add a Business</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Analytics (replace G-XXXXXXX with your ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Local Recommend</h1>
+    <p>Share your favorite local business and help others discover great places in your community.</p>
+  </header>
+
+  <main>
+    <form name="business" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="business" />
+
+      <label>Business Name
+        <input type="text" name="name" required />
+      </label>
+
+      <label>Location (Suburb/City)
+        <input type="text" name="location" required />
+      </label>
+
+      <label>Category
+        <select id="category" name="category" required>
+          <option value="">Select...</option>
+          <option>Restaurant / Café</option>
+          <option>Gym / Fitness</option>
+          <option>Beauty / Spa</option>
+          <option>Retail / Shop</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <!-- Hidden extra field for custom category -->
+      <div id="other-category" class="hidden">
+        <label>Specify Category
+          <input type="text" name="custom-category" placeholder="Enter category" />
+        </label>
+      </div>
+
+      <label>Why do you recommend it?
+        <textarea name="reason" rows="4" placeholder="Tell us what makes this business great..."></textarea>
+      </label>
+
+      <label>Your Name (optional)
+        <input type="text" name="user" placeholder="John Doe" />
+      </label>
+
+      <label>Email (optional)
+        <input type="email" name="email" placeholder="you@example.com" />
+      </label>
+
+      <label>Mobile Number (optional)
+        <input type="tel" name="mobile" placeholder="+64 21 123 4567" />
+      </label>
+
+      <button type="submit">Submit Recommendation</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 Local Recommend · Built for our community</p>
+  </footer>
+
+  <script>
+    // Show custom category input when "Other" is selected
+    const categorySelect = document.getElementById('category');
+    const otherCategoryDiv = document.getElementById('other-category');
+
+    categorySelect.addEventListener('change', () => {
+      if (categorySelect.value === 'Other') {
+        otherCategoryDiv.classList.remove('hidden');
+      } else {
+        otherCategoryDiv.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
