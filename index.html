@@ -6,6 +6,7 @@
   <title>Local Recommend | Add a Business</title>
   <link rel="stylesheet" href="css/style.css" />
 
+  <!-- Google Analytics (replace G-7SG0DYD3YG with your GA4 Measurement ID) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SG0DYD3YG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,75 +18,284 @@
 
 <body>
   <header>
-    <h1>Local Recommend</h1>
-    <p>Share your favorite local business and help others discover great places in your community.</p>
+    <div class="header-inner">
+      <h1>Local Recommend</h1>
+      <p>Share a local business you love and help others discover great places in your community.</p>
+    </div>
   </header>
 
   <main>
-    <form name="business" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="business" />
+    <section class="card">
+      <h2 class="card-title">Add a Business</h2>
+      <p class="card-subtitle">
+        This is a pre-release data collection form for our Local Recommend / Atlas project.
+      </p>
 
-      <label>Business Name
-        <input type="text" name="name" required />
-      </label>
+      <form id="business-form">
+        <!-- Honeypot (for bots) -->
+        <div class="hidden">
+          <label>Don’t fill this out if you're human:
+            <input name="bot-field" />
+          </label>
+        </div>
 
-      <label>Location (Suburb/City)
-        <input type="text" name="location" required />
-      </label>
+        <!-- Hidden tracking fields -->
+        <input type="hidden" name="source" id="source-field" />
+        <input type="hidden" name="campaign" id="campaign-field" value="prelaunch_nov2025" />
 
-      <label>Category
-        <select id="category" name="category" required>
-          <option value="">Select...</option>
-          <option>Restaurant / Café</option>
-          <option>Gym / Fitness</option>
-          <option>Beauty / Spa</option>
-          <option>Retail / Shop</option>
-          <option>Other</option>
-        </select>
-      </label>
+        <!-- BUSINESS INFO -->
+        <div class="form-section">
+          <h3>Business details</h3>
 
-      <!-- Hidden extra field for custom category -->
-      <div id="other-category" class="hidden">
-        <label>Specify Category
-          <input type="text" name="custom-category" placeholder="Enter category" />
-        </label>
-      </div>
+          <label>Business name <span class="required">*</span>
+            <input type="text" name="business-name" required />
+          </label>
 
-      <label>Why do you recommend it?
-        <textarea name="reason" rows="4" placeholder="Tell us what makes this business great..."></textarea>
-      </label>
+          <label>Category <span class="required">*</span>
+            <select id="category" name="category" required>
+              <option value="">Select a category...</option>
+              <option>Restaurant / Café</option>
+              <option>Gym / Fitness</option>
+              <option>Beauty / Spa</option>
+              <option>Retail / Shop</option>
+              <option>Professional services</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
 
-      <label>Your Name (optional)
-        <input type="text" name="user" placeholder="John Doe" />
-      </label>
+          <div id="other-category" class="hidden">
+            <label>Specify category <span class="required">*</span>
+              <input
+                type="text"
+                name="custom-category"
+                id="custom-category"
+                placeholder="e.g. Pottery studio, Music school"
+              />
+            </label>
+          </div>
 
-      <label>Email (optional)
-        <input type="email" name="email" placeholder="you@example.com" />
-      </label>
+          <label>Location / Suburb <span class="required">*</span>
+            <input type="text" name="location-suburb" placeholder="e.g. Takapuna" required />
+          </label>
 
-      <label>Mobile Number (optional)
-        <input type="tel" name="mobile" placeholder="+64 21 123 4567" />
-      </label>
+          <label>City / Region <span class="required">*</span>
+            <input type="text" name="city-region" placeholder="e.g. Auckland" required />
+          </label>
 
-      <button type="submit">Submit Recommendation</button>
-    </form>
+          <label>Website or main link (optional)
+            <input
+              type="url"
+              name="main-link"
+              placeholder="https://example.com or Google Maps / Instagram / Facebook link"
+            />
+          </label>
+
+          <label>Google Maps link (optional)
+            <input
+              type="url"
+              name="maps-link"
+              placeholder="https://www.google.com/maps/..."
+            />
+          </label>
+        </div>
+
+        <!-- RECOMMENDATION CONTEXT -->
+        <div class="form-section">
+          <h3>Why do you recommend this place?</h3>
+
+          <label>What makes this business great? <span class="required">*</span>
+            <textarea
+              name="reason"
+              rows="4"
+              placeholder="Tell us about the vibe, service, food, products, or anything you love..."
+              required
+            ></textarea>
+          </label>
+
+          <label>How strongly do you recommend it? <span class="required">*</span>
+            <select name="strength" required>
+              <option value="">Select...</option>
+              <option>It’s good</option>
+              <option>Really like it</option>
+              <option>One of my favourites</option>
+              <option>Absolute must-visit</option>
+            </select>
+          </label>
+
+          <label>What is it best for? (optional)
+            <input
+              type="text"
+              name="best-for"
+              placeholder="e.g. Coffee, brunch, date night, family dinner, remote work"
+            />
+          </label>
+
+          <label>How did you discover this place? (optional)
+            <select name="discovery">
+              <option value="">Select...</option>
+              <option>I live nearby</option>
+              <option>Friend or family recommendation</option>
+              <option>Social media</option>
+              <option>Online search / review site</option>
+              <option>Just walked past</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- USER INFO -->
+        <div class="form-section">
+          <h3>About you</h3>
+
+          <label>Your name (optional)
+            <input type="text" name="user-name" placeholder="First name is enough" />
+          </label>
+
+          <fieldset class="radio-group">
+            <legend>Your relationship to this business <span class="required">*</span></legend>
+            <label>
+              <input type="radio" name="relationship" value="Customer" required />
+              <span>Customer</span>
+            </label>
+            <label>
+              <input type="radio" name="relationship" value="Owner" />
+              <span>Owner</span>
+            </label>
+            <label>
+              <input type="radio" name="relationship" value="Staff" />
+              <span>Staff</span>
+            </label>
+            <label>
+              <input type="radio" name="relationship" value="Other" />
+              <span>Other</span>
+            </label>
+          </fieldset>
+
+          <label>Email (optional)
+            <input type="email" name="email" placeholder="you@example.com" />
+          </label>
+
+          <label>Mobile number (optional)
+            <input type="tel" name="mobile" placeholder="+64 21 123 4567" />
+          </label>
+        </div>
+
+        <!-- CONSENT -->
+        <div class="form-section">
+          <h3>Consent</h3>
+
+          <label class="checkbox-row">
+            <input type="checkbox" name="public-consent" required />
+            <span>
+              I’m happy for this recommendation (and my first name only) to be featured
+              on Local Recommend / Atlas in the future. <span class="required">*</span>
+            </span>
+          </label>
+
+          <label class="checkbox-row">
+            <input type="checkbox" name="contact-consent" />
+            <span>
+              You may contact me if you have questions about this recommendation.
+            </span>
+          </label>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="form-actions">
+          <button type="submit" id="submit-btn">Submit recommendation</button>
+          <p class="helper-text" id="status-text">
+            By submitting, you confirm the information is accurate to the best of your knowledge.
+          </p>
+        </div>
+      </form>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 Local Recommend · Built for our community</p>
+    <p>© 2025 Local Recommend · All rights reserved</p>
   </footer>
 
   <script>
-    // Show custom category input when "Other" is selected
+    // ====== CONFIG: UPDATE THESE ======
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxRUn_6zARdmJieAUiItrq68he4W8Tc0C9FOyxDCB7gq-sm7riJx-XjaSFUVJRU2r9ZSg/exec';
+    const ACCESS_KEY = 'LocalRec_2025';
+    // ==================================
+
+    const form = document.getElementById('business-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusText = document.getElementById('status-text');
+
     const categorySelect = document.getElementById('category');
     const otherCategoryDiv = document.getElementById('other-category');
+    const customCategoryInput = document.getElementById('custom-category');
 
-    categorySelect.addEventListener('change', () => {
+    function updateCategoryState() {
       if (categorySelect.value === 'Other') {
         otherCategoryDiv.classList.remove('hidden');
+        customCategoryInput.required = true;
       } else {
         otherCategoryDiv.classList.add('hidden');
+        customCategoryInput.required = false;
+        customCategoryInput.value = '';
       }
+    }
+    categorySelect.addEventListener('change', updateCategoryState);
+    updateCategoryState();
+
+    // Populate hidden tracking fields from UTM params or referrer
+    const params = new URLSearchParams(window.location.search);
+    const sourceField = document.getElementById('source-field');
+    const campaignField = document.getElementById('campaign-field');
+
+    const utmSource = params.get('utm_source');
+    const utmCampaign = params.get('utm_campaign');
+
+    if (utmSource) {
+      sourceField.value = utmSource;
+    } else if (document.referrer) {
+      try {
+        const refUrl = new URL(document.referrer);
+        sourceField.value = refUrl.hostname;
+      } catch (e) {
+        sourceField.value = document.referrer;
+      }
+    }
+
+    if (utmCampaign && !campaignField.value) {
+      campaignField.value = utmCampaign;
+    }
+
+    // Handle submit: send to Apps Script, then redirect to thank-you page
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      statusText.textContent = 'Please wait a moment while we save your recommendation.';
+
+      const formData = new FormData(form);
+      formData.append('key', ACCESS_KEY);
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(text => {
+          // Simple check; script returns JSON but we don't need to parse strictly
+          window.location.href = 'thank-you.html';
+        })
+        .catch(err => {
+          console.error('Error submitting form', err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit recommendation';
+          statusText.textContent = 'Something went wrong. Please try again in a moment.';
+        });
     });
   </script>
 </body>
