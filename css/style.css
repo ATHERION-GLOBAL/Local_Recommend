@@ -1,4 +1,4 @@
-/* Gen Z Inspired Style for Local Recommend */
+/* Gen Z Inspired Style for Loca */
 
 /* Reset-ish */
 *,
@@ -67,7 +67,7 @@ main {
 /* Card */
 .card {
   max-width: 720px;
-  margin: -2rem auto 3rem;
+  margin: 1.5rem auto 3rem;
   background: #ffffff;
   padding: 2rem 1.75rem;
   border-radius: 24px;
@@ -164,6 +164,60 @@ textarea:focus {
 textarea {
   resize: vertical;
   min-height: 110px;
+}
+
+/* Category banner */
+.category-banner {
+  margin: 0.75rem 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+}
+
+/* Default / neutral */
+.category-default {
+  background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+  color: #374151;
+}
+
+/* Restaurant / Café */
+.category-restaurant {
+  background: linear-gradient(135deg, #f97316, #ec4899);
+  color: #fff;
+}
+
+/* Gym / Fitness */
+.category-gym {
+  background: linear-gradient(135deg, #22c55e, #0ea5e9);
+  color: #fff;
+}
+
+/* Beauty / Spa */
+.category-beauty {
+  background: linear-gradient(135deg, #ec4899, #a855f7);
+  color: #fff;
+}
+
+/* Retail / Shop */
+.category-retail {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #fff;
+}
+
+/* Professional services */
+.category-professional {
+  background: linear-gradient(135deg, #0f172a, #4b5563);
+  color: #f9fafb;
+}
+
+/* Other */
+.category-other {
+  background: linear-gradient(135deg, #6b7280, #a855f7);
+  color: #f9fafb;
 }
 
 /* Radio group */
@@ -306,6 +360,6 @@ input[type="checkbox"] {
 
   .card {
     padding: 1.6rem 1.25rem;
-    margin-top: -1.6rem;
+    margin-top: 1.5rem;
   }
 }

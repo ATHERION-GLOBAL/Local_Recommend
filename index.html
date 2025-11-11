@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local Recommend | Add a Business</title>
+  <title>Loca | Add a Local Favourite</title>
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Google Analytics (replace G-7SG0DYD3YG with your GA4 Measurement ID) -->
@@ -19,17 +19,17 @@
 <body>
   <header>
     <div class="header-inner">
-      <h1>Local Recommend</h1>
-      <p>Share a local business you love and help others discover great places in your community.</p>
+      <h1>Live Loca.</h1>
+      <p>Share a local spot you love and help get it Loca Listed for everyone to discover.</p>
     </div>
   </header>
 
   <main>
     <section class="card">
-      <h2 class="card-title">Add a Business</h2>
-      <p class="card-subtitle">
-        This is a pre-release data collection form for our Local Recommend / Atlas project.
-      </p>
+      <h2 class="card-title">Add a Local Favourite</h2>
+<!--      <p class="card-subtitle">-->
+<!--        This is a pre-release data collection form for <strong>Loca</strong> — our community-powered local guide.-->
+<!--      </p>-->
 
       <form id="business-form">
         <!-- Honeypot (for bots) -->
@@ -78,6 +78,11 @@
             </label>
           </div>
 
+          <!-- Loca category banner -->
+          <div id="category-banner" class="category-banner category-default">
+            <span id="category-phrase">Pick a category to set the Loca vibe ✨</span>
+          </div>
+
           <label>Location / Suburb <span class="required">*</span>
             <input type="text" name="location-suburb" placeholder="e.g. Takapuna" required />
           </label>
@@ -111,7 +116,7 @@
             <textarea
               name="reason"
               rows="4"
-              placeholder="Tell us about the vibe, service, food, products, or anything you love..."
+              placeholder="Tell us the story: the vibe, the people, the food, the little things that make it Loca-level good..."
               required
             ></textarea>
           </label>
@@ -207,7 +212,7 @@
             <input type="checkbox" name="public-consent" required />
             <span>
               I’m happy for this recommendation (and my first name only) to be featured
-              on Local Recommend / Atlas in the future. <span class="required">*</span>
+              on Loca in the future. <span class="required">*</span>
             </span>
           </label>
 
@@ -221,7 +226,7 @@
 
         <!-- ACTIONS -->
         <div class="form-actions">
-          <button type="submit" id="submit-btn">Submit recommendation</button>
+          <button type="submit" id="submit-btn">Get it Loca Listed</button>
           <p class="helper-text" id="status-text">
             By submitting, you confirm the information is accurate to the best of your knowledge.
           </p>
@@ -231,7 +236,7 @@
   </main>
 
   <footer>
-    <p>© 2025 Local Recommend · All rights reserved</p>
+    <p>© 2025 Loca · All rights reserved</p>
   </footer>
 
   <script>
@@ -248,6 +253,9 @@
     const otherCategoryDiv = document.getElementById('other-category');
     const customCategoryInput = document.getElementById('custom-category');
 
+    const categoryBanner = document.getElementById('category-banner');
+    const categoryPhrase = document.getElementById('category-phrase');
+
     const sourceField = document.getElementById('source-field');
     const campaignField = document.getElementById('campaign-field');
 
@@ -263,9 +271,40 @@
     let formLoadTime = Date.now();
     loadTimestampEl.value = String(formLoadTime);
 
-    // Show/hide custom category field
+    // Category -> phrase + colour config
+    const categoryConfig = {
+      'Restaurant / Café': {
+        phrase: 'Eat local, live Loca.',
+        className: 'category-restaurant'
+      },
+      'Gym / Fitness': {
+        phrase: 'Train local, feel Loca.',
+        className: 'category-gym'
+      },
+      'Beauty / Spa': {
+        phrase: 'Glow local, glow Loca.',
+        className: 'category-beauty'
+      },
+      'Retail / Shop': {
+        phrase: 'Shop local, shop Loca.',
+        className: 'category-retail'
+      },
+      'Professional services': {
+        phrase: 'Trusted locals, powered by Loca.',
+        className: 'category-professional'
+      },
+      'Other': {
+        phrase: 'If it’s local, it’s Loca.',
+        className: 'category-other'
+      }
+    };
+
+    // Show/hide custom category field + update Loca banner
     function updateCategoryState() {
-      if (categorySelect.value === 'Other') {
+      const value = categorySelect.value;
+
+      // Handle "Other" custom category field
+      if (value === 'Other') {
         otherCategoryDiv.classList.remove('hidden');
         customCategoryInput.required = true;
       } else {
@@ -273,7 +312,19 @@
         customCategoryInput.required = false;
         customCategoryInput.value = '';
       }
+
+      // Handle phrase & colour
+      categoryBanner.className = 'category-banner category-default';
+
+      if (categoryConfig[value]) {
+        categoryPhrase.textContent = categoryConfig[value].phrase;
+        categoryBanner.classList.remove('category-default');
+        categoryBanner.classList.add(categoryConfig[value].className);
+      } else {
+        categoryPhrase.textContent = 'Pick a category to set the Loca vibe ✨';
+      }
     }
+
     categorySelect.addEventListener('change', updateCategoryState);
     updateCategoryState();
 
@@ -339,7 +390,7 @@
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
-      statusText.textContent = 'Please wait a moment while we save your recommendation.';
+      statusText.textContent = 'Please wait a moment while we save your Loca recommendation.';
 
       const formData = new FormData(form);
       formData.append('key', ACCESS_KEY);
@@ -355,7 +406,7 @@
         .catch(err => {
           console.error('Error submitting form', err);
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit recommendation';
+          submitBtn.textContent = 'Submit to get it Loca Listed';
           statusText.textContent = 'Something went wrong. Please try again in a moment.';
         });
     });
