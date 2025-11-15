@@ -17,182 +17,202 @@
 </head>
 
 <body>
-  <header>
-    <div class="header-inner">
-      <h1>Live Loca.</h1>
-      <p>Share a local spot you love and help get it Loca Listed for everyone to discover.</p>
-    </div>
-  </header>
+<header>
+  <div class="header-inner">
+    <h1>Live Loca.</h1>
+    <p>Share a local spot you love and help get it Loca Listed for everyone to discover.</p>
+  </div>
+</header>
 
-  <main>
-    <section class="card">
-      <h2 class="card-title">Add a Local Favourite</h2>
-<!--      <p class="card-subtitle">-->
-<!--        This is a pre-release data collection form for <strong>Loca</strong> — our community-powered local guide.-->
-<!--      </p>-->
+<!-- Top ad slot -->
+<section class="ad-slot ad-top">
+  <div class="ad-slot-inner">
+    <!-- Replace content below with your image/video/embed -->
+    <a href="https://partner.example" class="ad-link">
+      <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
+    </a>
+  </div>
+</section>
 
-      <form id="business-form">
-        <!-- Honeypot (for bots) -->
-        <div class="hidden">
-          <label>Don’t fill this out if you're human:
-            <input name="bot-field" />
-          </label>
-        </div>
+<main>
+  <section class="card">
+    <h2 class="card-title">Add a Local Favourite</h2>
+    <!--      <p class="card-subtitle">-->
+    <!--        This is a pre-release data collection form for <strong>Loca</strong> — our community-powered local guide.-->
+    <!--      </p>-->
 
-        <!-- Hidden tracking fields -->
-        <input type="hidden" name="source" id="source-field" />
-        <input type="hidden" name="campaign" id="campaign-field" value="prelaunch_nov2025" />
+    <form id="business-form">
+      <!-- Honeypot (for bots) -->
+      <div class="hidden">
+        <label>Don’t fill this out if you're human:
+          <input name="bot-field" />
+        </label>
+      </div>
 
-        <!-- Hidden for UI bot timing / math (optional server use) -->
-        <input type="hidden" id="load-timestamp" name="load-timestamp" />
-        <input type="hidden" id="bot-expected" name="bot-expected" />
+      <!-- Hidden tracking fields -->
+      <input type="hidden" name="source" id="source-field" />
+      <input type="hidden" name="campaign" id="campaign-field" value="prelaunch_nov2025" />
 
-        <!-- BUSINESS INFO -->
-        <div class="form-section">
-          <h3>Business details</h3>
+      <!-- Hidden for UI bot timing / math (optional server use) -->
+      <input type="hidden" id="load-timestamp" name="load-timestamp" />
+      <input type="hidden" id="bot-expected" name="bot-expected" />
 
-          <label>Business name <span class="required">*</span>
-            <input type="text" name="business-name" required />
-          </label>
+      <!-- BUSINESS INFO -->
+      <div class="form-section">
+        <h3>Business details</h3>
 
-          <label>Category <span class="required">*</span>
-            <select id="category" name="category" required>
-              <option value="">Select a category...</option>
-              <option>Restaurant / Café</option>
-              <option>Gym / Fitness</option>
-              <option>Beauty / Spa</option>
-              <option>Retail / Shop</option>
-              <option>Professional services</option>
-              <option value="Other">Other</option>
-            </select>
-          </label>
+        <label>Business name <span class="required">*</span>
+          <input type="text" name="business-name" required />
+        </label>
 
-          <div id="other-category" class="hidden">
-            <label>Specify category <span class="required">*</span>
-              <input
-                type="text"
-                name="custom-category"
-                id="custom-category"
-                placeholder="e.g. Pottery studio, Music school"
-              />
-            </label>
-          </div>
+        <label>Category <span class="required">*</span>
+          <select id="category" name="category" required>
+            <option value="">Select a category...</option>
+            <option>Restaurant / Café</option>
+            <option>Gym / Fitness</option>
+            <option>Beauty / Spa</option>
+            <option>Retail / Shop</option>
+            <option>Professional services</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
 
-          <!-- Loca category banner -->
-          <div id="category-banner" class="category-banner category-default">
-            <span id="category-phrase">Pick a category to set the Loca vibe ✨</span>
-          </div>
-
-          <label>Location / Suburb <span class="required">*</span>
-            <input type="text" name="location-suburb" placeholder="e.g. Takapuna" required />
-          </label>
-
-          <label>City / Region <span class="required">*</span>
-            <input type="text" name="city-region" placeholder="e.g. Auckland" required />
-          </label>
-
-          <label>Website or main link (optional)
-            <input
-              type="url"
-              name="main-link"
-              placeholder="https://example.com or Google Maps / Instagram / Facebook link"
-            />
-          </label>
-
-          <label>Google Maps link (optional)
-            <input
-              type="url"
-              name="maps-link"
-              placeholder="https://www.google.com/maps/..."
-            />
-          </label>
-        </div>
-
-        <!-- RECOMMENDATION CONTEXT -->
-        <div class="form-section">
-          <h3>Why do you recommend this place?</h3>
-
-          <label>What makes this business great? <span class="required">*</span>
-            <textarea
-              name="reason"
-              rows="4"
-              placeholder="Tell us the story: the vibe, the people, the food, the little things that make it Loca-level good..."
-              required
-            ></textarea>
-          </label>
-
-          <label>How strongly do you recommend it? <span class="required">*</span>
-            <select name="strength" required>
-              <option value="">Select...</option>
-              <option>It’s good</option>
-              <option>Really like it</option>
-              <option>One of my favourites</option>
-              <option>Absolute must-visit</option>
-            </select>
-          </label>
-
-          <label>What is it best for? (optional)
+        <div id="other-category" class="hidden">
+          <label>Specify category <span class="required">*</span>
             <input
               type="text"
-              name="best-for"
-              placeholder="e.g. Coffee, brunch, date night, family dinner, remote work"
+              name="custom-category"
+              id="custom-category"
+              placeholder="e.g. Pottery studio, Music school"
             />
           </label>
-
-          <label>How did you discover this place? (optional)
-            <select name="discovery">
-              <option value="">Select...</option>
-              <option>I live nearby</option>
-              <option>Friend or family recommendation</option>
-              <option>Social media</option>
-              <option>Online search / review site</option>
-              <option>Just walked past</option>
-              <option>Other</option>
-            </select>
-          </label>
         </div>
 
-        <!-- USER INFO -->
-        <div class="form-section">
-          <h3>About you</h3>
-
-          <label>Your name (optional)
-            <input type="text" name="user-name" placeholder="First name is enough" />
-          </label>
-
-          <fieldset class="radio-group">
-            <legend>Your relationship to this business <span class="required">*</span></legend>
-            <label>
-              <input type="radio" name="relationship" value="Customer" required />
-              <span>Customer</span>
-            </label>
-            <label>
-              <input type="radio" name="relationship" value="Owner" />
-              <span>Owner</span>
-            </label>
-            <label>
-              <input type="radio" name="relationship" value="Staff" />
-              <span>Staff</span>
-            </label>
-            <label>
-              <input type="radio" name="relationship" value="Other" />
-              <span>Other</span>
-            </label>
-          </fieldset>
-
-          <label>Email (optional)
-            <input type="email" name="email" placeholder="you@example.com" />
-          </label>
-
-          <label>Mobile number (optional)
-            <input type="tel" name="mobile" placeholder="+64 21 123 4567" />
-          </label>
+        <!-- Loca category banner -->
+        <div id="category-banner" class="category-banner category-default">
+          <span id="category-phrase">Pick a category to set the Loca vibe ✨</span>
         </div>
 
-        <!-- HUMAN CHECK (UI-level bot prevention) -->
-        <div class="form-section">
-          <h3>Quick human check</h3>
-          <label id="bot-check-label">
+        <label>Location / Suburb <span class="required">*</span>
+          <input type="text" name="location-suburb" placeholder="e.g. Takapuna" required />
+        </label>
+
+        <label>City / Region <span class="required">*</span>
+          <input type="text" name="city-region" placeholder="e.g. Auckland" required />
+        </label>
+
+        <label>Website or main link (optional)
+          <input
+            type="url"
+            name="main-link"
+            placeholder="https://example.com or Google Maps / Instagram / Facebook link"
+          />
+        </label>
+
+        <label>Google Maps link (optional)
+          <input
+            type="url"
+            name="maps-link"
+            placeholder="https://www.google.com/maps/..."
+          />
+        </label>
+      </div>
+
+      <!-- RECOMMENDATION CONTEXT -->
+      <div class="form-section">
+        <h3>Why do you recommend this place?</h3>
+
+        <label>What makes this business great? <span class="required">*</span>
+          <textarea
+            name="reason"
+            rows="4"
+            placeholder="Tell us the story: the vibe, the people, the food, the little things that make it Loca-level good..."
+            required
+          ></textarea>
+        </label>
+
+        <label>How strongly do you recommend it? <span class="required">*</span>
+          <select name="strength" required>
+            <option value="">Select...</option>
+            <option>It’s good</option>
+            <option>Really like it</option>
+            <option>One of my favourites</option>
+            <option>Absolute must-visit</option>
+          </select>
+        </label>
+
+        <label>What is it best for? (optional)
+          <input
+            type="text"
+            name="best-for"
+            placeholder="e.g. Coffee, brunch, date night, family dinner, remote work"
+          />
+        </label>
+
+        <label>How did you discover this place? (optional)
+          <select name="discovery">
+            <option value="">Select...</option>
+            <option>I live nearby</option>
+            <option>Friend or family recommendation</option>
+            <option>Social media</option>
+            <option>Online search / review site</option>
+            <option>Just walked past</option>
+            <option>Other</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Middle ad slot -->
+      <section class="ad-slot ad-middle">
+        <div class="ad-slot-inner">
+          <!-- Replace with featured Loca spotlight, video, or promo -->
+          <a href="https://partner.example" class="ad-link">
+            <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
+          </a>
+        </div>
+      </section>
+
+      <!-- USER INFO -->
+      <div class="form-section">
+        <h3>About you</h3>
+
+        <label>Your name (optional)
+          <input type="text" name="user-name" placeholder="First name is enough" />
+        </label>
+
+        <fieldset class="radio-group">
+          <legend>Your relationship to this business <span class="required">*</span></legend>
+          <label>
+            <input type="radio" name="relationship" value="Customer" required />
+            <span>Customer</span>
+          </label>
+          <label>
+            <input type="radio" name="relationship" value="Owner" />
+            <span>Owner</span>
+          </label>
+          <label>
+            <input type="radio" name="relationship" value="Staff" />
+            <span>Staff</span>
+          </label>
+          <label>
+            <input type="radio" name="relationship" value="Other" />
+            <span>Other</span>
+          </label>
+        </fieldset>
+
+        <label>Email (optional)
+          <input type="email" name="email" placeholder="you@example.com" />
+        </label>
+
+        <label>Mobile number (optional)
+          <input type="tel" name="mobile" placeholder="+64 21 123 4567" />
+        </label>
+      </div>
+
+      <!-- HUMAN CHECK (UI-level bot prevention) -->
+      <div class="form-section">
+        <h3>Quick human check</h3>
+        <label id="bot-check-label">
             <span>
               What is
               <span id="bot-num-a"></span>
@@ -200,216 +220,224 @@
               <span id="bot-num-b"></span>
               ? <span class="required">*</span>
             </span>
-            <input type="number" name="bot-answer" id="bot-answer" required />
-          </label>
-        </div>
+          <input type="number" name="bot-answer" id="bot-answer" required />
+        </label>
+      </div>
 
-        <!-- CONSENT -->
-        <div class="form-section">
-          <h3>Consent</h3>
+      <!-- CONSENT -->
+      <div class="form-section">
+        <h3>Consent</h3>
 
-          <label class="checkbox-row">
-            <input type="checkbox" name="public-consent" required />
-            <span>
+        <label class="checkbox-row">
+          <input type="checkbox" name="public-consent" required />
+          <span>
               I’m happy for this recommendation (and my first name only) to be featured
               on Loca in the future. <span class="required">*</span>
             </span>
-          </label>
+        </label>
 
-          <label class="checkbox-row">
-            <input type="checkbox" name="contact-consent" />
-            <span>
+        <label class="checkbox-row">
+          <input type="checkbox" name="contact-consent" />
+          <span>
               You may contact me if you have questions about this recommendation.
             </span>
-          </label>
-        </div>
+        </label>
+      </div>
 
-        <!-- ACTIONS -->
-        <div class="form-actions">
-          <button type="submit" id="submit-btn">Get it Loca Listed</button>
-          <p class="helper-text" id="status-text">
-            By submitting, you confirm the information is accurate to the best of your knowledge.
-          </p>
-        </div>
-      </form>
-    </section>
-  </main>
+      <!-- ACTIONS -->
+      <div class="form-actions">
+        <button type="submit" id="submit-btn">Get it Loca Listed</button>
+        <p class="helper-text" id="status-text">
+          By submitting, you confirm the information is accurate to the best of your knowledge.
+        </p>
+      </div>
+    </form>
+  </section>
 
-  <footer>
-    <p>© 2025 Loca · All rights reserved</p>
-  </footer>
+  <!-- Bottom ad slots -->
+  <section class="ad-bottom-grid">
+    <div class="ad-slot ad-bottom">
+      <div class="ad-slot-inner">
+        <a href="https://partner.example" class="ad-link">
+          <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
+        </a>
+      </div>
+    </div>
+    <div class="ad-slot ad-bottom">
+      <div class="ad-slot-inner">
+        <a href="https://partner.example" class="ad-link">
+          <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <script>
-    // ====== CONFIG: UPDATE THESE ======
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxRUn_6zARdmJieAUiItrq68he4W8Tc0C9FOyxDCB7gq-sm7riJx-XjaSFUVJRU2r9ZSg/exec';
-    const ACCESS_KEY = 'LocalRec_2025';
-    // ==================================
+<footer>
+  <p>© 2025 Loca · All rights reserved</p>
+</footer>
 
-    const form = document.getElementById('business-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const statusText = document.getElementById('status-text');
+<script>
+  // ====== CONFIG: UPDATE THESE ======
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxRUn_6zARdmJieAUiItrq68he4W8Tc0C9FOyxDCB7gq-sm7riJx-XjaSFUVJRU2r9ZSg/exec';
+  const ACCESS_KEY = 'LocalRec_2025';
+  // ==================================
 
-    const categorySelect = document.getElementById('category');
-    const otherCategoryDiv = document.getElementById('other-category');
-    const customCategoryInput = document.getElementById('custom-category');
+  const form = document.getElementById('business-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const statusText = document.getElementById('status-text');
 
-    const categoryBanner = document.getElementById('category-banner');
-    const categoryPhrase = document.getElementById('category-phrase');
+  const categorySelect = document.getElementById('category');
+  const otherCategoryDiv = document.getElementById('other-category');
+  const customCategoryInput = document.getElementById('custom-category');
 
-    const sourceField = document.getElementById('source-field');
-    const campaignField = document.getElementById('campaign-field');
+  const categoryBanner = document.getElementById('category-banner');
+  allBannersClass = 'category-banner category-default';
+  const categoryPhrase = document.getElementById('category-phrase');
 
-    const loadTimestampEl = document.getElementById('load-timestamp');
+  const sourceField = document.getElementById('source-field');
+  const campaignField = document.getElementById('campaign-field');
 
-    // Human check elements
-    const botNumAEl = document.getElementById('bot-num-a');
-    const botNumBEl = document.getElementById('bot-num-b');
-    const botExpectedEl = document.getElementById('bot-expected');
-    const botAnswerEl = document.getElementById('bot-answer');
+  const loadTimestampEl = document.getElementById('load-timestamp');
 
-    // Track when form loaded (for time-based bot check)
-    let formLoadTime = Date.now();
-    loadTimestampEl.value = String(formLoadTime);
+  // Human check elements
+  const botNumAEl = document.getElementById('bot-num-a');
+  const botNumBEl = document.getElementById('bot-num-b');
+  const botExpectedEl = document.getElementById('bot-expected');
+  const botAnswerEl = document.getElementById('bot-answer');
 
-    // Category -> phrase + colour config
-    const categoryConfig = {
-      'Restaurant / Café': {
-        phrase: 'Eat local, live Loca.',
-        className: 'category-restaurant'
-      },
-      'Gym / Fitness': {
-        phrase: 'Train local, feel Loca.',
-        className: 'category-gym'
-      },
-      'Beauty / Spa': {
-        phrase: 'Glow local, glow Loca.',
-        className: 'category-beauty'
-      },
-      'Retail / Shop': {
-        phrase: 'Shop local, shop Loca.',
-        className: 'category-retail'
-      },
-      'Professional services': {
-        phrase: 'Trusted locals, powered by Loca.',
-        className: 'category-professional'
-      },
-      'Other': {
-        phrase: 'If it’s local, it’s Loca.',
-        className: 'category-other'
-      }
-    };
+  // Track when form loaded (for time-based bot check)
+  let formLoadTime = Date.now();
+  loadTimestampEl.value = String(formLoadTime);
 
-    // Show/hide custom category field + update Loca banner
-    function updateCategoryState() {
-      const value = categorySelect.value;
+  // Category -> phrase + colour config
+  const categoryConfig = {
+    'Restaurant / Café': {
+      phrase: 'Eat local, live Loca.',
+      className: 'category-restaurant'
+    },
+    'Gym / Fitness': {
+      phrase: 'Train local, feel Loca.',
+      className: 'category-gym'
+    },
+    'Beauty / Spa': {
+      phrase: 'Glow local, glow Loca.',
+      className: 'category-beauty'
+    },
+    'Retail / Shop': {
+      phrase: 'Shop local, shop Loca.',
+      className: 'category-retail'
+    },
+    'Professional services': {
+      phrase: 'Trusted locals, powered by Loca.',
+      className: 'category-professional'
+    },
+    'Other': {
+      phrase: 'If it’s local, it’s Loca.',
+      className: 'category-other'
+    }
+  };
 
-      // Handle "Other" custom category field
-      if (value === 'Other') {
-        otherCategoryDiv.classList.remove('hidden');
-        customCategoryInput.required = true;
-      } else {
-        otherCategoryDiv.classList.add('hidden');
-        customCategoryInput.required = false;
-        customCategoryInput.value = '';
-      }
+  function updateCategoryState() {
+    const value = categorySelect.value;
 
-      // Handle phrase & colour
-      categoryBanner.className = 'category-banner category-default';
-
-      if (categoryConfig[value]) {
-        categoryPhrase.textContent = categoryConfig[value].phrase;
-        categoryBanner.classList.remove('category-default');
-        categoryBanner.classList.add(categoryConfig[value].className);
-      } else {
-        categoryPhrase.textContent = 'Pick a category to set the Loca vibe ✨';
-      }
+    // "Other" custom category field
+    if (value === 'Other') {
+      otherCategoryDiv.classList.remove('hidden');
+      customCategoryInput.required = true;
+    } else {
+      otherCategoryDiv.classList.add('hidden');
+      customCategoryInput.required = false;
+      customCategoryInput.value = '';
     }
 
-    categorySelect.addEventListener('change', updateCategoryState);
-    updateCategoryState();
+    // Phrase & colour
+    categoryBanner.className = 'category-banner category-default';
+    if (categoryConfig[value]) {
+      categoryPhrase.textContent = categoryConfig[value].phrase;
+      categoryBanner.classList.remove('category-default');
+      categoryBanner.classList.add(categoryConfig[value].className);
+    } else {
+      categoryPhrase.textContent = 'Pick a category to set the Loca vibe ✨';
+    }
+  }
 
-    // Generate simple math human check
-    (function initHumanCheck() {
-      const a = Math.floor(Math.random() * 8) + 1; // 1–8
-      const b = Math.floor(Math.random() * 8) + 1; // 1–8
-      botNumAEl.textContent = a;
-      botNumBEl.textContent = b;
-      botExpectedEl.value = String(a + b);
-    })();
+  categorySelect.addEventListener('change', updateCategoryState);
+  updateCategoryState();
 
-    // Populate source/campaign from UTM or referrer
-    const params = new URLSearchParams(window.location.search);
-    const utmSource = params.get('utm_source');
-    const utmCampaign = params.get('utm_campaign');
+  // Simple math human check
+  (function initHumanCheck() {
+    const a = Math.floor(Math.random() * 8) + 1;
+    const b = Math.floor(Math.random() * 8) + 1;
+    botNumAEl.textContent = a;
+    botNumBEl.textContent = b;
+    botExpectedEl.value = String(a + b);
+  })();
 
-    if (utmSource) {
-      sourceField.value = utmSource;
-    } else if (document.referrer) {
-      try {
-        const refUrl = new URL(document.referrer);
-        sourceField.value = refUrl.hostname;
-      } catch (e) {
-        sourceField.value = document.referrer;
-      }
+  // UTM/referrer capture
+  const params = new URLSearchParams(window.location.search);
+  const utmSource = params.get('utm_source');
+  const utmCampaign = params.get('utm_campaign');
+
+  if (utmSource) {
+    sourceField.value = utmSource;
+  } else if (document.referrer) {
+    try {
+      const refUrl = new URL(document.referrer);
+      sourceField.value = refUrl.hostname;
+    } catch (e) {
+      sourceField.value = document.referrer;
+    }
+  }
+  if (utmCampaign && !campaignField.value) {
+    campaignField.value = utmCampaign;
+  }
+
+  // Submit handler
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
     }
 
-    if (utmCampaign && !campaignField.value) {
-      campaignField.value = utmCampaign;
+    // UI bot checks
+    const now = Date.now();
+    const elapsedMs = now - formLoadTime;
+    if (elapsedMs < 2000) {
+      statusText.textContent = 'That was a bit too fast – please take a moment and try again.';
+      return;
     }
 
-    // Handle form submit: UI bot checks -> POST to Apps Script -> redirect to thank-you
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    const expected = parseInt(botExpectedEl.value, 10);
+    const answer = parseInt(botAnswerEl.value || 'NaN', 10);
+    if (isNaN(answer) || answer !== expected) {
+      statusText.textContent = 'Please answer the small math question correctly to submit.';
+      botAnswerEl.focus();
+      return;
+    }
 
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+    // Submit
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    statusText.textContent = 'Please wait a moment while we save your Loca recommendation.';
 
-      // --- UI-level bot checks ---
-      const now = Date.now();
-      const elapsedMs = now - formLoadTime;
+    const formData = new FormData(form);
+    formData.append('key', ACCESS_KEY);
 
-      // 1) Time check: if filled in unrealistically fast (< 2 seconds)
-      if (elapsedMs < 2000) {
-        statusText.textContent = 'That was a bit too fast – please take a moment and try again.';
-        return;
-      }
-
-      // 2) Simple math check
-      const expected = parseInt(botExpectedEl.value, 10);
-      const answer = parseInt(botAnswerEl.value || 'NaN', 10);
-
-      if (isNaN(answer) || answer !== expected) {
-        statusText.textContent = 'Please answer the small math question correctly to submit.';
-        botAnswerEl.focus();
-        return;
-      }
-
-      // --- If we reach here, UI checks passed; carry on with submit ---
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      statusText.textContent = 'Please wait a moment while we save your Loca recommendation.';
-
-      const formData = new FormData(form);
-      formData.append('key', ACCESS_KEY);
-
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: formData
+    fetch(SCRIPT_URL, { method: 'POST', body: formData })
+      .then(response => response.text())
+      .then(text => {
+        window.location.href = 'thank-you.html';
       })
-        .then(response => response.text())
-        .then(text => {
-          window.location.href = 'thank-you.html';
-        })
-        .catch(err => {
-          console.error('Error submitting form', err);
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit to get it Loca Listed';
-          statusText.textContent = 'Something went wrong. Please try again in a moment.';
-        });
-    });
-  </script>
+      .catch(err => {
+        console.error('Error submitting form', err);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit to get it Loca Listed';
+        statusText.textContent = 'Something went wrong. Please try again in a moment.';
+      });
+  });
+</script>
 </body>
 </html>
