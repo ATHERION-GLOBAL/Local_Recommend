@@ -19,8 +19,11 @@
 <body>
 <header>
   <div class="header-inner">
-    <h1>Live Loca.</h1>
-    <p>Share a local spot you love and help get it Loca Listed for everyone to discover.</p>
+
+    <!-- Loca Logo -->
+    <img src="img/loca.jpeg" alt="Loca Logo" class="loca-logo" />
+
+    <p>Love a business? Share it and get it Loca Listed for all to discover.</p>
   </div>
 </header>
 
@@ -28,7 +31,7 @@
 <section class="ad-slot ad-top">
   <div class="ad-slot-inner">
     <!-- Replace content below with your image/video/embed -->
-    <a href="https://partner.example" class="ad-link">
+    <a href="https://www.google.com/" class="ad-link">
       <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
     </a>
   </div>
@@ -65,7 +68,7 @@
           <input type="text" name="business-name" required />
         </label>
 
-        <label>Category <span class="required">*</span>
+        <label>Category
           <select id="category" name="category" required>
             <option value="">Select a category...</option>
             <option>Restaurant / Café</option>
@@ -78,7 +81,7 @@
         </label>
 
         <div id="other-category" class="hidden">
-          <label>Specify category <span class="required">*</span>
+          <label>Specify category
             <input
               type="text"
               name="custom-category"
@@ -93,11 +96,11 @@
           <span id="category-phrase">Pick a category to set the Loca vibe ✨</span>
         </div>
 
-        <label>Location / Suburb <span class="required">*</span>
+        <label>Location / Suburb
           <input type="text" name="location-suburb" placeholder="e.g. Takapuna" required />
         </label>
 
-        <label>City / Region <span class="required">*</span>
+        <label>City / Region
           <input type="text" name="city-region" placeholder="e.g. Auckland" required />
         </label>
 
@@ -122,7 +125,7 @@
       <div class="form-section">
         <h3>Why do you recommend this place?</h3>
 
-        <label>What makes this business great? <span class="required">*</span>
+        <label>What makes this business great?
           <textarea
             name="reason"
             rows="4"
@@ -131,7 +134,7 @@
           ></textarea>
         </label>
 
-        <label>How strongly do you recommend it? <span class="required">*</span>
+        <label>How strongly do you recommend it?
           <select name="strength" required>
             <option value="">Select...</option>
             <option>It’s good</option>
@@ -166,7 +169,7 @@
       <section class="ad-slot ad-middle">
         <div class="ad-slot-inner">
           <!-- Replace with featured Loca spotlight, video, or promo -->
-          <a href="https://partner.example" class="ad-link">
+          <a href="https://www.google.com/" class="ad-link">
             <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
           </a>
         </div>
@@ -181,7 +184,7 @@
         </label>
 
         <fieldset class="radio-group">
-          <legend>Your relationship to this business <span class="required">*</span></legend>
+          <legend>Your relationship to this business </legend>
           <label>
             <input type="radio" name="relationship" value="Customer" required />
             <span>Customer</span>
@@ -209,37 +212,13 @@
         </label>
       </div>
 
-      <!-- HUMAN CHECK (UI-level bot prevention) -->
-      <div class="form-section">
-        <h3>Quick human check</h3>
-        <label id="bot-check-label">
-            <span>
-              What is
-              <span id="bot-num-a"></span>
-              +
-              <span id="bot-num-b"></span>
-              ? <span class="required">*</span>
-            </span>
-          <input type="number" name="bot-answer" id="bot-answer" required />
-        </label>
-      </div>
-
       <!-- CONSENT -->
       <div class="form-section">
         <h3>Consent</h3>
-
-        <label class="checkbox-row">
-          <input type="checkbox" name="public-consent" required />
-          <span>
-              I’m happy for this recommendation (and my first name only) to be featured
-              on Loca in the future. <span class="required">*</span>
-            </span>
-        </label>
-
         <label class="checkbox-row">
           <input type="checkbox" name="contact-consent" />
           <span>
-              You may contact me if you have questions about this recommendation.
+              I consent to this recommendation being featured on Loca in the future.
             </span>
         </label>
       </div>
@@ -258,14 +237,14 @@
   <section class="ad-bottom-grid">
     <div class="ad-slot ad-bottom">
       <div class="ad-slot-inner">
-        <a href="https://partner.example" class="ad-link">
+        <a href="https://www.google.com/" class="ad-link">
           <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
         </a>
       </div>
     </div>
     <div class="ad-slot ad-bottom">
       <div class="ad-slot-inner">
-        <a href="https://partner.example" class="ad-link">
+        <a href="https://www.google.com/" class="ad-link">
           <img src="img/partner-banner.jpg" alt="Partner promotion" loading="lazy" />
         </a>
       </div>
